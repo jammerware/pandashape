@@ -6,4 +6,4 @@ class GenericDescriber:
         self.df = df
 
     def describe(self):
-        pass
+        raise NotImplementedError()

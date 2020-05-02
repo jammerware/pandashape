@@ -1,3 +1,2 @@
-from pandashape.PandaShaper import PandaShaper
-
 import pandashape.describers.GenericDescriber
+import pandashape.describers.GeneralDescriber

@@ -1,5 +1,6 @@
 import pandas as pd
 from pandashape import Columns
+from pandashape.describers.GeneralDescriber import GeneralDescriber
 from pandashape.internal.TransformerExecutor import TransformerExecutor
 
 
@@ -10,13 +11,13 @@ class PandaShaper:
         # why does this cause an evaluation of the truth of df?
         # self.df = df if inplace else df.copy(df)
         self.df = df
-        if inplace:
+        if not inplace:
             self.df = df.copy()
 
-    def report(self, columnDefinitions):
-        # print(f"Reporting on {columnDefinitions}")
-        # df_adults.columns[df_adults.isna().any()]
-        pass
+    def describe(self, columnDefinitions=None):
+        if columnDefinitions is None:
+            describer = GeneralDescriber(self.df)
+            return describer.describe(self.df)
 
     def transform(self, columnDefinitions):
         executor = TransformerExecutor()

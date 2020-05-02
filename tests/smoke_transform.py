@@ -22,8 +22,11 @@ df_adults.columns = [
     "Income"
 ]
 
-shaper = PandaShaper(df_adults)
-shaper.transform({
-    "columns": 'Education',
-    "transformers": MassLabelEncoder(label_encoding_breakpoint=5)
-})
+# shaper = PandaShaper(df_adults)
+# shaper.transform({
+#     "columns": 'Education',
+#     "transformers": MassLabelEncoder(label_encoding_breakpoint=5)
+# })
+
+df_dataset = pd.read_csv('./tests/assets/dataset.csv')
+df_dataset.head()
