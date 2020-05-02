@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-from pandashape import PandaShaper
+from pandashape import PandaShaper, Columns
+from pandashape.transformers import MassLabelEncoder
 
-print('CWD', os.getcwd())
 df_adults = pd.read_csv('./tests/assets/adult_data.txt', sep=",", header=None)
 df_adults.columns = [
     "Age",
@@ -23,4 +23,7 @@ df_adults.columns = [
 ]
 
 shaper = PandaShaper(df_adults)
-shaper.report(['1', '2', '3'])
+shaper.transform({
+    "columns": 'Education',
+    "transformers": MassLabelEncoder(label_encoding_breakpoint=5)
+})

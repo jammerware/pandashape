@@ -1,4 +1,6 @@
 import pandas as pd
+from pandashape import Columns
+from pandashape.internal.TransformerExecutor import TransformerExecutor
 
 
 class PandaShaper:
@@ -12,5 +14,11 @@ class PandaShaper:
             self.df = df.copy()
 
     def report(self, columnDefinitions):
-        print(f"Reporting on {columnDefinitions}")
+        # print(f"Reporting on {columnDefinitions}")
         # df_adults.columns[df_adults.isna().any()]
+        pass
+
+    def transform(self, columnDefinitions):
+        executor = TransformerExecutor()
+        newColumns = executor.transform(self.df, columnDefinitions)
+        print('new columns!', newColumns)
