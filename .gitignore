@@ -1,1 +1,5 @@
+# environment stuff
+.vscode/settings.json
+
+# compiled
 __pycache__
