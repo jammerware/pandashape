@@ -8,25 +8,19 @@ class MassLabelEncoder(GenericTransformer):
         self.label_encoding_breakpoint = label_encoding_breakpoint
 
     def transform(self, df):
-        assert(isinstance(df, DataFrame))
-        categorical_features = (
-            df
-            .select_dtypes(include='object')
-            .columns
-            .array
-            .to_numpy()
-            .tolist()
-        )
+        assert(isinstance(df, pd.DataFrame))
 
-        # print(categorical_features)
+        newSeries = []
+        for column in df.columns:
+            series = df[column]
+            unique_value_count = len(series.astype('category').cat.codes)
 
-    def transformSeries(self, series):
-        unique_value_count = len(series.astype('category').cat.codes)
+            if unique_value_count >= self.label_encoding_breakpoint:
+                newSeries.append(self.__labelEncode(series))
+            else:
+                newSeries.append(self.__oneHotEncode(series))
 
-        if unique_value_count >= self.label_encoding_breakpoint:
-            return self.__labelEncode(series)
-        else:
-            return self.__oneHotEncode(series)
+        return newSeries
 
     def __labelEncode(self, series):
         return pd.Series(name=series.name, data=series.astype('category').cat.codes)

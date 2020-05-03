@@ -1,6 +1,3 @@
 class GenericTransformer:
-    def transform(self):
-        raise NotImplementedError()
-
-    def transformSeries(self, series):
+    def transform(self, df):
         raise NotImplementedError()

@@ -7,3 +7,6 @@ class GenericDescriber:
 
     def describe(self):
         raise NotImplementedError()
+
+    def get_section_header(self):
+        raise NotImplementedError()

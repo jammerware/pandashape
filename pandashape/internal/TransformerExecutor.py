@@ -21,6 +21,9 @@ class TransformerExecutor:
             transformColumns = []
             if columnDef['columns'] == Columns.All:
                 transformColumns = df[df.columns]
+            elif columnDef['columns'] == Columns.Numeric:
+                transformColumns = df[df.select_dtypes(
+                    include='number').columns]
             else:
                 # note that this covers both a single string column name or an array of them
                 transformColumns = df[columnDef['columns']]
@@ -31,6 +34,7 @@ class TransformerExecutor:
 
         # transform all targeted columns
         columnsToReturn = []
+
         for transformColumn in transformColumns:
             columnsToReturn.append(
                 self.__transformColumn(
@@ -39,10 +43,11 @@ class TransformerExecutor:
                 )
             )
 
+        print("columns to return", columnsToReturn)
         return columnsToReturn
 
     def __transformColumn(self, column, transformers):
         for transformer in transformers:
-            column = transformer.transformSeries(column)
+            column = transformer.transform(column)
 
         return column

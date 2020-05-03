@@ -7,17 +7,20 @@ from pandashape.internal.TransformerExecutor import TransformerExecutor
 class PandaShaper:
     def __init__(self, df, inplace=False):
         assert(isinstance(df, pd.DataFrame))
-
-        # why does this cause an evaluation of the truth of df?
-        # self.df = df if inplace else df.copy(df)
-        self.df = df
-        if not inplace:
-            self.df = df.copy()
+        self.df = df.copy() if not inplace else df
 
     def describe(self, columnDefinitions=None):
+        messages = []
         if columnDefinitions is None:
             describer = GeneralDescriber(self.df)
-            return describer.describe(self.df)
+            messages.extend(describer.describe())
+
+        print("########### PANDASHAPE REPORT ###########")
+        print()
+        print(f"*** {describer.get_section_header()} ***")
+        for message in messages:
+            print(message)
+        print()
 
     def transform(self, columnDefinitions):
         executor = TransformerExecutor()
