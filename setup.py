@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pandashape",
-    version="0.0.1",
+    version="0.0.2",
     author="Ben Stein",
     author_email="ben.s.stein@gmail.com",
     description="A package designed to simplify data preprocessing for use with Pandas",
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jammerware/panda-shape.git",
     packages=setuptools.find_packages(
-        exclude=["*.tests", "*.tests.*", "tests.*", "tests", "pandashape/internal"]),
+        exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
         "pandas",
         "numpy"

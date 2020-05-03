@@ -17,7 +17,7 @@ class GeneralDescriber(GenericDescriber):
         object_typed_columns = df.select_dtypes(include='object').columns.array
         if len(object_typed_columns) > 0:
             messages.append(
-                f"Columns of type object (may need label encoding): ${object_typed_columns}"
+                f"Columns of type \"object\" (may need label encoding): ${object_typed_columns}"
             )
 
         return messages
