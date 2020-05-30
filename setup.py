@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pandashape",
-    version="0.0.2",
+    version="0.0.3",
     author="Ben Stein",
     author_email="ben.s.stein@gmail.com",
     description="A package designed to simplify data preprocessing for use with Pandas",
@@ -16,7 +16,8 @@ setuptools.setup(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
         "pandas",
-        "numpy"
+        "numpy",
+        "scikit-learn"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",

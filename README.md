@@ -18,7 +18,7 @@ the expressive syntax to define a pipeline for cleanup:
 import numpy as np
 import pandas as pd
 from pandashape import PandaShaper, Columns
-from pandashape.transformers import MassLabelEncoder, NullColumnsDropper
+from pandashape.transformers import CategoricalEncoder, NullColumnsDropper
 
 # create your frame
 my_df = pd.read_csv('./my_data.csv')
@@ -38,10 +38,10 @@ transformed_df = shaper.transform(
         ]
     },
     {
-        # MassLabelEncoder one-hot-encodes targeted categorical columns if they
+        # CategoricalEncoder one-hot-encodes targeted categorical columns if they
         # have a number of values ≥ the breakpoint or label encodes them normally 
         'columns': ['Education', 'SES'], 
-        'transformers': MassLabelEncoder(label_encoding_breakpoint=4)
+        'transformers': CategoricalEncoder(label_encoding_breakpoint=4)
     }
 )
 

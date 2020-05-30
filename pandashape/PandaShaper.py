@@ -25,4 +25,4 @@ class PandaShaper:
     def transform(self, columnDefinitions):
         executor = TransformerExecutor()
         newColumns = executor.transform(self.df, columnDefinitions)
-        print('new columns!', newColumns)
+        print(newColumns)

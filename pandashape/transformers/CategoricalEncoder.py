@@ -1,10 +1,11 @@
-from pandas import DataFrame, Series
 import pandas as pd
+from pandas import DataFrame, Series
 from pandashape.transformers.GenericTransformer import GenericTransformer
 
 
-class MassLabelEncoder(GenericTransformer):
-    def __init__(self, label_encoding_breakpoint=0):
+class CategoricalEncoder(GenericTransformer):
+    def __init__(self, column_label=None, label_encoding_breakpoint=0):
+        self.column_label = column_label
         self.label_encoding_breakpoint = label_encoding_breakpoint
 
     def transform(self, df):
