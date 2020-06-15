@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class GenericDescriber:
+class Describer:
     def __init__(self, df):
         self.df = df
 

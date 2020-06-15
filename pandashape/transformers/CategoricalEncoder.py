@@ -1,9 +1,9 @@
 import pandas as pd
 from pandas import DataFrame, Series
-from pandashape.transformers.GenericTransformer import GenericTransformer
+from pandashape.transformers.Transformer import Transformer
 
 
-class CategoricalEncoder(GenericTransformer):
+class CategoricalEncoder(Transformer):
     def __init__(self, column_label=None, label_encoding_breakpoint=0):
         self.column_label = column_label
         self.label_encoding_breakpoint = label_encoding_breakpoint

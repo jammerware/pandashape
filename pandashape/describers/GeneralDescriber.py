@@ -1,7 +1,7 @@
-from .GenericDescriber import GenericDescriber
+from .Describer import Describer
 
 
-class GeneralDescriber(GenericDescriber):
+class GeneralDescriber(Describer):
     TEMP_SKEW_THRESHOLD = 0.4
 
     def __init__(self, df):

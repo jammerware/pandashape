@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
-from .GenericTransformer import GenericTransformer
+from .Transformer import Transformer
 from pandashape.enums.Scaling import Scaling
 
 
-class MassScaler(GenericTransformer):
+class MassScaler(Transformer):
     def __init__(self, scaling=Scaling.MinMax, skewness_breakpoint=None, inplace=False, suffix='_scaled'):
         self.scaling = scaling
         self.skewness_breakpoint = skewness_breakpoint

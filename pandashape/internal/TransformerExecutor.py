@@ -1,6 +1,6 @@
 from pandas import DataFrame
 from pandashape import Columns
-from pandashape.transformers import GenericTransformer
+from pandashape.transformers import Transformer
 from pandashape.internal import listify
 
 
@@ -8,7 +8,7 @@ class TransformerExecutor:
     def validate(self, df, columnDefinitions):
         for columnDef in columnDefinitions:
             for transformer in columnDef['transformers']:
-                assert(isinstance(transformer, GenericTransformer))
+                assert(isinstance(transformer, Transformer))
 
     def transform(self, df, columnDefinitions):
         # convert the definitions to an array (so people can pass

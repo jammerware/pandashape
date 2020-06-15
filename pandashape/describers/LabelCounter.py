@@ -1,6 +1,6 @@
-from .GenericDescriber import GenericDescriber
+from .Describer import Describer
 
 
-class LabelCounter(GenericDescriber):
+class LabelCounter(Describer):
     def __init__(self):
         pass
