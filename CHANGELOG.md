@@ -1,3 +1,6 @@
+# 0.0.5 
+- Corrected project homepage in setup.py
+
 # 0.0.4
 - Updated README
 - `GenericTransformer` and `GenericDescriber` have been renamed to `Transformer` and `Describer` respectively for succinctness.

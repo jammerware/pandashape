@@ -11,7 +11,7 @@ setuptools.setup(
     description="A package designed to simplify data preprocessing for use with Pandas",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jammerware/panda-shape.git",
+    url="https://github.com/jammerware/pandashape.git",
     packages=setuptools.find_packages(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     install_requires=[
