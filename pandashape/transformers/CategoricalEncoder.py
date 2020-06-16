@@ -8,20 +8,15 @@ class CategoricalEncoder(Transformer):
         self.column_label = column_label
         self.label_encoding_breakpoint = label_encoding_breakpoint
 
-    def transform(self, df):
-        assert(isinstance(df, pd.DataFrame))
+    def transform(self, series):
+        assert(isinstance(series, pd.Series))
 
-        newSeries = []
-        for column in df.columns:
-            series = df[column]
-            unique_value_count = len(series.astype('category').cat.codes)
+        unique_value_count = len(series.astype('category').cat.codes)
 
-            if unique_value_count >= self.label_encoding_breakpoint:
-                newSeries.append(self.__labelEncode(series))
-            else:
-                newSeries.append(self.__oneHotEncode(series))
-
-        return newSeries
+        if unique_value_count >= self.label_encoding_breakpoint:
+            return self.__labelEncode(series)
+        else:
+            return self.__oneHotEncode(series)
 
     def __labelEncode(self, series):
         return pd.Series(name=series.name, data=series.astype('category').cat.codes)

@@ -2,10 +2,7 @@ import pandas as pd
 
 
 class Describer:
-    def __init__(self, df):
-        self.df = df
-
-    def describe(self):
+    def describe(self, df):
         raise NotImplementedError()
 
     def get_section_header(self):

@@ -4,14 +4,10 @@ from .Describer import Describer
 class GeneralDescriber(Describer):
     TEMP_SKEW_THRESHOLD = 0.4
 
-    def __init__(self, df):
-        super().__init__(df)
-
     def get_section_header(self):
         return "General frame info"
 
-    def describe(self):
-        df = self.df
+    def describe(self, df):
         messages = [f"Shape: {df.shape}"]
 
         # NULLS
