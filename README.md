@@ -111,3 +111,6 @@ transformed_df = shaper.transform(
 transformed_df.head()
 ```
 
+## Acknowledgments
+
+Special thanks to the other members of the [Sustainable Social Computing Lab](https://ssc-pitt.github.io/) at the University of Pittsburgh for their support, ideas, and contributions.

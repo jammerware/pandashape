@@ -1,6 +1,6 @@
 import pandas as pd
 from pandashape import Columns
-from pandashape.describers.GeneralDescriber import GeneralDescriber
+from pandashape.describers import GeneralDescriber, DistributionDescriber
 from pandashape.internal import DescriberExecutor, TransformerExecutor
 
 
@@ -9,7 +9,7 @@ class PandaShaper:
         assert(isinstance(df, pd.DataFrame))
         self.df = df.copy() if not inplace else df
 
-    def describe(self, describers=GeneralDescriber, columns=Columns.All):
+    def describe(self, describers=[GeneralDescriber, DistributionDescriber], columns=Columns.All):
         executor = DescriberExecutor()
         executor.describe(self.df, describers, columns)
 

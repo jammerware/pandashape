@@ -17,7 +17,8 @@ setuptools.setup(
     install_requires=[
         "pandas",
         "numpy",
-        "scikit-learn"
+        "scikit-learn",
+        "scipy"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
