@@ -4,7 +4,7 @@ from scipy import stats
 
 
 class DistributionDescriber(Describer):
-    def __init__(self, outlier_threshold=2, skewness_threshold=4):
+    def __init__(self, outlier_threshold=2, skewness_threshold=0.4):
         self.outlier_threshold = outlier_threshold
         self.skewness_threshold = skewness_threshold
 
@@ -48,6 +48,7 @@ class DistributionDescriber(Describer):
                 skewed_keys.append(key)
 
         if len(skewed_keys) > 0:
+            messages.append("")
             messages.append(
                 f"These columns are skewed beyond the threshold of 1 +/- {self.skewness_threshold}. You may want to scale them somehow.")
 

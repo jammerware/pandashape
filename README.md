@@ -111,6 +111,10 @@ transformed_df = shaper.transform(
 transformed_df.head()
 ```
 
+## Upcoming improvements
+
+- Allow the user to constrain describers to specific columns (by name or `Columns` enum value)
+
 ## Acknowledgments
 
 Special thanks to the other members of the [Sustainable Social Computing Lab](https://ssc-pitt.github.io/) at the University of Pittsburgh for their support, ideas, and contributions.

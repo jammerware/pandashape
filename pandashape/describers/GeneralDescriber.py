@@ -26,18 +26,4 @@ class GeneralDescriber(Describer):
                 f"Columns of type \"object\" (may need label encoding): {object_typed_columns}"
             )
 
-        # SKEW
-        skewness = df.skew()
-        skewed_keys = []
-        for key in skewness.keys():
-            if abs(1-skewness[key]) >= self.TEMP_SKEW_THRESHOLD:
-                skewed_keys.append(key)
-
-        if len(skewed_keys) > 0:
-            messages.append(
-                f"These columns are skewed beyond the threshold of 1 +/- {self.TEMP_SKEW_THRESHOLD}. You may want to scale them somehow.")
-
-            for key in skewed_keys:
-                messages.append(f" - {key} ({skewness[key]})")
-
         return messages
