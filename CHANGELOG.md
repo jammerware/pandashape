@@ -1,6 +1,9 @@
-# 0.0.5 
+
+# 0.0.5
 - Corrected project homepage in setup.py
 - Added `DistributionDescriber` to describe skew and identify outliers.
+- Added `DTypesDescriber` to summarize frame data types.
+- Added pypi version badge.
 
 # 0.0.4
 - Updated README

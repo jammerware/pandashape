@@ -14,6 +14,7 @@ class DTypesDescriber(Describer):
         df_numeric = df.select_dtypes(np.number)
         df_dates = df.select_dtypes(np.datetime64)
         df_strings_or_objects = df.select_dtypes(object)
+        df_other = df.select_dtypes(exclude=[np.number, np.datetime64, object])
 
         if len(df_numeric.columns) > 0:
             messages.append(f"- Numeric: {len(df_numeric.columns)}")
@@ -21,7 +22,10 @@ class DTypesDescriber(Describer):
         if len(df_dates.columns) > 0:
             messages.append(f"- Date/times: {len(df_dates.columns)}")
 
-        if len(df_strings_or_objects) > 0:
+        if len(df_strings_or_objects.columns) > 0:
             messages.append(f"- Objects/strings: {len(df_strings_or_objects.columns)}")
+
+        if len(df_other.columns) > 0:
+            messages.append(f"- Other types: {len(df_other.columns)}")
 
         return messages

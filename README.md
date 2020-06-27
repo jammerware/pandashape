@@ -1,3 +1,5 @@
+[![PyPI version](https://badge.fury.io/py/pandashape.svg)](https://badge.fury.io/py/pandashape)
+
 # pandashape: a simpleish Python package for easy data cleanup and preparation of Pandas dataframes
 
 I made `pandashape` because I've been finding I do a lot of the same repetitive cleanup for simple modeling with scikit-learn.
