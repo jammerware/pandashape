@@ -40,32 +40,40 @@ shaper.describe()
 ```
 
 ```
-########### PANDASHAPE REPORT ###########
+#########################################
+###         PANDASHAPE REPORT         ###
+#########################################
 
-*** General frame info ***
-Shape: (1000, 10)
+### General frame info ###
+-----------------------------------------
+Shape: (1000, 12)
 Columns with one or more null values: ['History']
 Columns of type "object" (may need label encoding): ['Age' 'Gender' 'OwnHome' 'Married' 'Location' 'History']
+
+### Data types ###
+-----------------------------------------
+Columns by data type
+- Numeric: 6
+- Objects/strings: 6
+
+### Distribution ###
+-----------------------------------------
+These columns have significant outlier values (more than +/- 2 standard deviations from the mean).
+- Salary (34)
+- AmountSpent (42)
+- AmountSpent_HighCorrelation (42)
+- Salary_HighCorr (34)
+
 These columns are skewed beyond the threshold of 1 +/- 0.4. You may want to scale them somehow.
  - Salary (0.41909498781999727)
  - Catalogs (0.0920540150758884)
  - AmountSpent (1.4692769120373967)
+ - AmountSpent_HighCorrelation (1.4692769120373967)
+ - Salary_HighCorr (0.41909498781999727)
 
-[1000 rows x 8 columns]]
-[     Salary  Children  Catalogs  AmountSpent  Salary_scaled  Children_scaled  Catalogs_scaled  AmountSpent_scaled
-0     47500         0         6          755      10.768485             -inf         1.791759            6.626718
-1     63600         0         6         1318      11.060369             -inf         1.791759            7.183871
-2     13500         0        18          296       9.510445             -inf         2.890372            5.690359
-3     85600         1        18         2436      11.357441         0.000000         2.890372            7.798113
-4     68400         0        12         1304      11.133128             -inf         2.484907            7.173192
-..      ...       ...       ...          ...            ...              ...              ...                 ...
-995   19400         1        18          384       9.873028         0.000000         2.890372            5.950643
-996   40500         1        18         1073      10.609057         0.000000         2.890372            6.978214
-997   44800         0        24         1417      10.709963             -inf         3.178054            7.256297
-998   79000         2        18          671      11.277203         0.693147         2.890372            6.508769
-999   53600         1        24          973      10.889304         0.000000         3.178054            6.880384
-
-[1000 rows x 8 columns]]
+### Correlated columns ###
+-----------------------------------------
+The following columns are highly correlated (r² > 0.8): ['AmountSpent_HighCorrelation', 'Salary_HighCorr']
 ```
 
 If you have questions that you often ask about your datasets, you can encapsulate them in classes that inherit PandaShape's `Describer` for reuse. See the wiki for documentation.
@@ -116,6 +124,12 @@ transformed_df.head()
 ## Upcoming improvements
 
 - Allow the user to constrain describers to specific columns (by name or `Columns` enum value)
+- A describer that summarizes discrete column values for columns that appear to be categorical
+- Allow the user to pass types to the 'transformers' property when shaping
+
+## Features being evaluated
+
+- Improvements to `.describe` that returns all frames generated during transformation for inspection
 
 ## Acknowledgments
 
