@@ -17,4 +17,4 @@ class ColumnResolver:
         elif definition == Columns.Numeric:
             return df.select_dtypes(include='number').columns
         else:
-            return [column for column in definition if column in df.columns]
+            return [column for column in listify(definition) if column in df.columns]

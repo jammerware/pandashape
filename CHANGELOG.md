@@ -1,6 +1,7 @@
 
 # 0.0.5
 - Corrected project homepage in setup.py
+- Resolved a bug that prevented single-column transformer definitions from resolving correctly (e.g. 'Gender' rather than ['Gender'])
 - Added `DistributionDescriber` to describe skew and identify outliers.
 - Added `DTypesDescriber` to summarize frame data types.
 - Added pypi version badge.
