@@ -1,8 +1,7 @@
 import pandas as pd
 from pandas import DataFrame
-from pandashape import Columns
-from pandashape.transformers import Transformer
-from pandashape.internal import ColumnResolver, listify
+from ..transformers import Transformer
+from ..internal import ColumnResolver, listify
 
 
 class TransformerExecutor:

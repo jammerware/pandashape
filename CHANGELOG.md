@@ -1,3 +1,6 @@
+# 0.0.6
+- Added PyTest!
+- Binary columns are now ignored when describing distribution
 
 # 0.0.5
 - Corrected project homepage in setup.py

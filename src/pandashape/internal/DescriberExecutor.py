@@ -1,6 +1,6 @@
-from pandashape.enums import Columns
-from pandashape.internal import ColumnResolver, listify
-from pandashape.describers import Describer
+from ..enums import Columns
+from ..internal import ColumnResolver, listify
+from ..describers import Describer
 
 
 class DescriberExecutor:

@@ -1,6 +1,5 @@
 import pandas as pd
-from pandas import DataFrame, Series
-from pandashape.transformers.Transformer import Transformer
+from .Transformer import Transformer
 
 
 class CategoricalEncoder(Transformer):

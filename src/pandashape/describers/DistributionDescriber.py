@@ -1,3 +1,4 @@
+from numpy.lib.arraysetops import unique
 from .Describer import Describer
 import numpy as np
 from scipy import stats
@@ -13,14 +14,17 @@ class DistributionDescriber(Describer):
 
     def describe(self, df):
         messages = []
+        columns_to_analyze = df.select_dtypes(include=np.number)
 
-        # outliers
+        # skip columns that only have two values and are thus very likely categorical/binary
+        columns_to_analyze = [col for col in columns_to_analyze if len(df[col].unique()) > 2]
+
+        # track outliers for reporting
         outlier_columns = []
-        numeric_columns = df.select_dtypes(include=np.number)
 
-        for column_name, series in numeric_columns.iteritems():
+        for column_name in columns_to_analyze:
             # zscore becomes a numpy array
-            zscores = np.abs(stats.zscore(series))
+            zscores = np.abs(stats.zscore(df[column_name]))
             # i had no idea this was a thing, but apparently it is
             outliers_filter = zscores > self.outlier_threshold
             outliers = zscores[outliers_filter]
@@ -43,9 +47,10 @@ class DistributionDescriber(Describer):
         skewness = df.skew()
         skewed_keys = []
 
-        for key in skewness.keys():
-            if abs(1-skewness[key]) >= self.skewness_threshold:
-                skewed_keys.append(key)
+        for column in columns_to_analyze:
+            # skewness.keys()
+            if abs(1-skewness[column]) >= self.skewness_threshold:
+                skewed_keys.append(column)
 
         if len(skewed_keys) > 0:
             messages.append("")

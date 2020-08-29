@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 from .Transformer import Transformer
-from pandashape.enums.Scaling import Scaling
+from ..enums.Scaling import Scaling
 
 
 class MassScaler(Transformer):

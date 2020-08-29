@@ -1,7 +1,7 @@
 import pandas as pd
-from pandashape import Columns
-from pandashape.describers import GeneralDescriber, DistributionDescriber, DTypesDescriber
-from pandashape.internal import DescriberExecutor, TransformerExecutor
+from .enums.Columns import Columns
+from .describers import GeneralDescriber, DistributionDescriber, DTypesDescriber
+from .internal import DescriberExecutor, TransformerExecutor
 
 
 class PandaShaper:

@@ -1,6 +1,6 @@
 import pandas as pd
-from pandashape import Columns
-from pandashape.internal import listify
+from . import listify
+from ..enums import Columns
 
 
 class ColumnResolver:
