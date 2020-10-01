@@ -1,3 +1,9 @@
+# 0.0.7
+- Added a describer that summarizes discrete column values for columns that appear to be categorical]
+- Moved label-encoding suggestion to new describer (CategoricalDescriber)
+- Describers are no longer reported if they don't return messages.
+- Added tests to support the above.
+
 # 0.0.6
 - Added PyTest!
 - Binary columns are now ignored when describing distribution

@@ -124,7 +124,6 @@ transformed_df.head()
 ## Upcoming improvements
 
 - Allow the user to constrain describers to specific columns (by name or `Columns` enum value)
-- A describer that summarizes discrete column values for columns that appear to be categorical
 - Allow the user to pass types to the 'transformers' property when shaping
 
 ## Features being evaluated

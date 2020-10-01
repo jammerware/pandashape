@@ -8,24 +8,8 @@
             "type": "shell",
             "command": "conda",
             "args": [
-                "env",
-                "list"
-            ]
-        },
-        {
-            "label": "test",
-            "type": "shell",
-            "group": "test",
-            "command": "python",
-            "args": [
-                "-m",
-                "tests"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "dependsOn": [
-                "activate environment"
+                "activate",
+                "pandashape"
             ]
         }
     ]

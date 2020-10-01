@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pandashape",
-    version="0.0.6",
+    version="0.0.7",
     author="Ben Stein",
     author_email="ben.s.stein@gmail.com",
     description="A package designed to simplify data preprocessing for use with Pandas",

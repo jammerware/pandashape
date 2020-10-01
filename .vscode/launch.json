@@ -5,10 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Run tests",
+            "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "module": "tests"
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug Tests",
+            "type": "python",
+            "request": "test",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "pythonPath": "${command:python.interpreterPath}"
         }
     ]
 }

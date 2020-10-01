@@ -1,4 +1,3 @@
-from numpy.lib.arraysetops import unique
 from .Describer import Describer
 import numpy as np
 from scipy import stats

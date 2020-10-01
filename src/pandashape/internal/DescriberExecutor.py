@@ -4,10 +4,7 @@ from ..describers import Describer
 
 
 class DescriberExecutor:
-    def __init__(self):
-        pass
-
-    def describe(self, df, describers, columns):
+    def describe(self, df, describers, columns=None):
         messageLines = []
         describers = listify(describers)
 
@@ -31,12 +28,12 @@ class DescriberExecutor:
             describer_messages = listify(describer.describe(df))
 
             # print results
-            messageLines.append("")
-            messageLines.append(f"### {describer.get_section_header()} ###")
-            messageLines.append("-----------------------------------------")
-            messageLines.extend(describer_messages)
+            if len(describer_messages) > 0:
+                messageLines.extend(describer_messages)
 
         # print all messages
         for line in messageLines:
             print(line)
         print()
+
+        return messageLines
