@@ -5,7 +5,7 @@ from src.pandashape.describers import CategoricalDescriber
 class TestCategoricalDescriber():
     def test_ignores_numeric_columns(self):
         # arrange
-        df = pd.DataFrame(columns=['column'], data=[0, 1, 2, 3, 4], )
+        df = pd.DataFrame(columns=['column'], data=[0, 1, 2, 3, 4])
         describer = CategoricalDescriber()
 
         # act
